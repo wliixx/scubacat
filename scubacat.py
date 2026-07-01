@@ -46,7 +46,7 @@ def openhand(lm):   # функция, проверяющая, открыта л�
 # a function that draws a skeleton for a hand
 def draw_landmarks(frame, landmarks):    # a function that draws a skeleton for a hand
     h, w, _ = frame.shape
-    points = [(int(lm.x * w), int(lm.y * w)) for lm in landmarks]
+    points = [(int(lm.x * w), int(lm.y * h)) for lm in landmarks]
     for start, end in HAND_CONNECTIONS:
         cv2.line(frame, points[start], points[end], (0, 225, 0), 2)
     for x,y in points:
